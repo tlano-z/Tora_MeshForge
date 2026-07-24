@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tora-meshforge.example/schemas/inspection-report.schema.json",
+  "title": "Tora_MeshForge inspection report",
+  "type": "object",
+  "required": [
+    "application",
+    "schema_version",
+    "status",
+    "source",
+    "geometry",
+    "textures",
+    "features",
+    "devices",
+    "recommendation",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "application": { "const": "Tora_MeshForge" },
+    "schema_version": { "type": "string" },
+    "status": { "enum": ["success", "failure", "cancelled"] },
+    "source": {
+      "type": "object",
+      "required": ["path", "format", "file_size_bytes"]
+    },
+    "geometry": {
+      "type": "object",
+      "required": ["objects", "meshes", "vertices", "triangles", "materials", "bounding_box"]
+    },
+    "textures": {
+      "type": "object",
+      "required": ["count", "maximum_dimension", "images", "missing_files"]
+    },
+    "features": { "type": "object" },
+    "devices": { "type": "object" },
+    "recommendation": { "type": "object" },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array" }
+  }
+}

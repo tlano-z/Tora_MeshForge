@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tora-meshforge"
+description = "Inspect and prepare dense 3D assets for runtime workflows with Blender."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{ name = "とらの" }]
+dynamic = ["version"]
+keywords = ["3d", "blender", "fbx", "retopology", "uv", "normal-map"]
+classifiers = [
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+dependencies = ["PySide6>=6.6,<7"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2,<2", "pytest>=8,<10", "pytest-cov>=5,<8"]
+
+[project.scripts]
+tora-meshforge = "tora_meshforge.cli:main"
+tora-meshforge-gui = "tora_meshforge.gui.app:main"
+
+[project.urls]
+Homepage = "https://github.com/tlano-z/Tora_MeshForge"
+Repository = "https://github.com/tlano-z/Tora_MeshForge"
+Issues = "https://github.com/tlano-z/Tora_MeshForge/issues"
+
+[tool.hatch.version]
+path = "tora_meshforge/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tora_meshforge"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/.github",
+    "/docs",
+    "/requirements",
+    "/scripts",
+    "/tests",
+    "/tools",
+    "/tora_meshforge",
+    "/.gitignore",
+    "/config.example.toml",
+    "/Install-Tora_MeshForge.bat",
+    "/LICENSE",
+    "/pyproject.toml",
+    "/README.md",
+    "/README.en.md",
+    "/SECURITY.md",
+    "/THIRD_PARTY_NOTICES.md",
+    "/Tora_MeshForge.bat",
+]
+exclude = [
+    "/.agents",
+    "/.git",
+    "/.venv",
+    "/AgentWork",
+    "/work",
+    "/AGENTS.md",
+    "/CODE_OF_CONDUCT.md",
+    "/CONTRIBUTING.md",
+    "/docs/release-checklist.md",
+    "/docs/runtime-rebuild-roadmap.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

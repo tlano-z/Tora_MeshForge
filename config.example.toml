@@ -1,0 +1,14 @@
+[application]
+name = "Tora_MeshForge"
+work_directory = "work"
+maximum_source_size_mb = 2048
+inspection_timeout_seconds = 1800
+
+[tools]
+blender = "C:/Program Files/Blender Foundation/Blender 4.2/blender.exe"
+
+[processing]
+target_triangles = 50000
+
+[texture]
+maximum_resolution = 8192

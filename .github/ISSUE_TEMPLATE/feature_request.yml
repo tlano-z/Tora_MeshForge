@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose a user-visible improvement or supported workflow.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the practical model-processing problem rather than only the desired control.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - General static models
+        - UV or texture workflow
+        - Geometry or retopology
+        - Runtime validation
+        - GUI or installation
+        - Platform-specific integration
+    validations:
+      required: true

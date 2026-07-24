@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tora-meshforge.example/schemas/roundtrip-report.schema.json",
+  "title": "Tora_MeshForge static FBX round-trip report",
+  "type": "object",
+  "required": [
+    "application",
+    "schema_version",
+    "operation",
+    "status",
+    "input",
+    "warnings",
+    "errors"
+  ],
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "success" } } },
+      "then": { "required": ["source", "output", "validation"] }
+    }
+  ],
+  "properties": {
+    "application": { "const": "Tora_MeshForge" },
+    "schema_version": { "type": "string" },
+    "operation": { "const": "static_fbx_round_trip" },
+    "status": { "enum": ["success", "failure", "cancelled"] },
+    "input": { "type": "object" },
+    "source": { "$ref": "#/$defs/sceneMetrics" },
+    "output": { "$ref": "#/$defs/sceneMetrics" },
+    "validation": {
+      "type": "object",
+      "required": ["passed", "checks", "failed_checks"],
+      "properties": {
+        "passed": { "type": "boolean" },
+        "checks": { "type": "object", "additionalProperties": { "type": "boolean" } },
+        "failed_checks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array" }
+  },
+  "$defs": {
+    "sceneMetrics": {
+      "type": "object",
+      "required": ["objects", "meshes", "vertices", "triangles", "object_names", "mesh_names", "hierarchy", "material_slots", "bounding_box"]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a reproducible problem without attaching confidential assets.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not upload models or textures unless you have redistribution rights. Remove personal paths from logs.
+  - type: input
+    id: version
+    attributes:
+      label: Tora_MeshForge version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: blender
+    attributes:
+      label: Blender version
+      placeholder: 4.5.3 LTS
+    validations:
+      required: true
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Operation
+      options:
+        - Installation or startup
+        - Inspection
+        - Static FBX Round Trip
+        - Fast Optimize
+        - Runtime Rebuild
+        - Surface Retopology
+        - Triangle Sweep
+        - Environment diagnostics
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include settings and the smallest reproducible sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include the error and sanitized log or report excerpts.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Asset and privacy check
+      options:
+        - label: I removed confidential assets, secrets, and personal filesystem paths, or I have permission to publish them.
+          required: true

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tora-meshforge.example/schemas/fast-optimize-report.schema.json",
+  "title": "Tora_MeshForge Fast Optimize report",
+  "type": "object",
+  "required": ["application", "schema_version", "operation", "status", "input", "warnings", "errors"],
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "success" } } },
+      "then": { "required": ["backend", "source", "output", "decimation", "validation"] }
+    }
+  ],
+  "properties": {
+    "application": { "const": "Tora_MeshForge" },
+    "schema_version": { "type": "string" },
+    "operation": { "const": "fast_optimize" },
+    "status": { "enum": ["success", "failure", "cancelled"] },
+    "backend": { "const": "blender_decimate" },
+    "input": { "type": ["object", "string"] },
+    "source": { "type": "object" },
+    "output": { "type": "object" },
+    "decimation": {
+      "type": "object",
+      "required": ["requested_target", "source_triangles", "output_triangles", "reduction_ratio"]
+    },
+    "validation": {
+      "type": "object",
+      "required": ["passed", "checks", "failed_checks"],
+      "properties": {
+        "passed": { "type": "boolean" },
+        "checks": { "type": "object", "additionalProperties": { "type": "boolean" } },
+        "failed_checks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array" }
+  }
+}
