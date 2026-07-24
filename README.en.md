@@ -4,9 +4,7 @@
 
 Tora_MeshForge is a Windows tool that converts dense or AI-generated static 3D models into FBX files with practical triangle counts and editable UVs. It can compare several candidates or build one model at a selected triangle target.
 
-[![Model, mesh, and UV + Base Color comparison at 661,588 / 50,000 / 25,000 / 5,000 triangles](docs/assets/tora-meshforge-comparison.png)](https://github.com/tlano-z/Tora_MeshForge/releases/download/v1.0.0/tora-meshforge-comparison.zip)
-
-This example generates 50,000 / 25,000 / 5,000-triangle candidates from a 661,588-triangle input model. It compares the textured model with Shape Normal, mesh, and UV + Base Color for each result. [Download the detailed comparison HTML package](https://github.com/tlano-z/Tora_MeshForge/releases/download/v1.0.0/tora-meshforge-comparison.zip) for front, side, and back views, UV + texture layouts, and Normal maps.
+![Model, mesh, and UV + Base Color comparison at 661,588 / 50,000 / 25,000 / 5,000 triangles](docs/assets/tora-meshforge-comparison.png)
 
 ## What it does
 
