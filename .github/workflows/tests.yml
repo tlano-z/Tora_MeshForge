@@ -31,8 +31,9 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: python -m pip install --constraint requirements/constraints.txt -e ".[dev]"
-      - run: python tools/verify_release.py --output dist --report dist/release-verification.json
+      - run: python -m venv .venv
+      - run: .\.venv\Scripts\python.exe -m pip install --constraint requirements/constraints.txt -e ".[dev]"
+      - run: .\.venv\Scripts\python.exe tools/verify_release.py --output dist --report dist/release-verification.json
       - uses: actions/upload-artifact@v4
         with:
           name: tora-meshforge-python-distributions
