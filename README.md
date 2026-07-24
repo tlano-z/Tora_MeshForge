@@ -6,6 +6,10 @@ Tora_MeshForgeは、密なモデルやAI生成の静的3Dモデルを、扱い�
 
 仕組み、手作業との違い、適した用途については[このツールについて](docs/about.md)を参照してください。
 
+[![661,588 / 50,000 / 25,000 / 5,000三角形のモデル・メッシュ・UV＋Base Color比較](docs/assets/tora-meshforge-comparison.png)](https://github.com/tlano-z/Tora_MeshForge/releases/download/v1.0.0/tora-meshforge-comparison.zip)
+
+661,588三角形の入力モデルから、50,000 / 25,000 / 5,000三角形の候補を生成した例です。各候補について、テクスチャ＋Shape Normal適用済みモデル、メッシュ、UV＋Base Colorを比較しています。[正面・側面・背面、UV＋テクスチャ、Normalを含む詳細比較HTML一式をダウンロード](https://github.com/tlano-z/Tora_MeshForge/releases/download/v1.0.0/tora-meshforge-comparison.zip)できます。
+
 ## できること
 
 - 複数の三角形数を試し、品質重視・バランス・軽量の3候補を比較
